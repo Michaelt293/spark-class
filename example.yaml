@@ -1,0 +1,37 @@
+name: Export
+packagePath: org.test
+tableDescription: classic diamonds dataset
+fields:
+- fieldName: _c0
+  primitiveType: Int
+  dataDescription: ''
+- fieldName: carat
+  primitiveType: Double
+  dataDescription: 'weight of the diamond'
+- fieldName: cut
+  primitiveType: String
+  dataDescription: 'quality of the cut'
+- fieldName: color
+  primitiveType: String
+  dataDescription: 'diamond colour'
+- fieldName: clarity
+  primitiveType: String
+  dataDescription: 'diamond clarity'
+- fieldName: depth
+  primitiveType: Double
+  dataDescription: 'total depth percentage'
+- fieldName: table
+  primitiveType: Double
+  dataDescription: 'width of top of diamond relative to widest point'
+- fieldName: price
+  primitiveType: Int
+  dataDescription: 'price in US dollars'
+- fieldName: x
+  primitiveType: Double
+  dataDescription: 'length in mm'
+- fieldName: y
+  primitiveType: Double
+  dataDescription: 'width in mm'
+- fieldName: z
+  primitiveType: Double
+  dataDescription: 'depth in mm'

@@ -37,10 +37,12 @@ class CaseClassSpec extends FlatSpec with Matchers {
       List(
         Field("name", PrimitiveType.String, false, Some("Person's name")),
         Field("pets", PrimitiveType.Int, false, Some("Number of pets")),
-        Field("time",
-              PrimitiveType.Timestamp,
-              true,
-              Some("Time of last pet purchase")),
+        Field(
+          "time",
+          PrimitiveType.Timestamp,
+          true,
+          Some("Time of last pet purchase")
+        ),
         Field("date", PrimitiveType.Date, true, None)
       )
     )
@@ -105,8 +107,8 @@ class CaseClassSpec extends FlatSpec with Matchers {
 
   "testCaseClassWithPackage.showCaseClassWithImports" should "be formatted correctly" in {
     testCaseClassWithPackage.showCaseClassWithImports shouldEqual
-      """|import java.sql.Timestamp
-         |import java.sql.Date
+      """|import java.sql.Date
+         |import java.sql.Timestamp
          |
          |case class TestWithPackage(
          |  name: Option[String],
@@ -121,8 +123,8 @@ class CaseClassSpec extends FlatSpec with Matchers {
     testCaseClassWithPackage.showCaseClassAll shouldEqual
       """|package org.test
          |
-         |import java.sql.Timestamp
          |import java.sql.Date
+         |import java.sql.Timestamp
          |
          |/**
          | * Data model for TestWithPackage

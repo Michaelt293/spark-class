@@ -14,7 +14,10 @@ final case class CaseClass(
     packagePath.map("package " + _)
 
   def requiredImports: List[String] =
-    fields.flatMap(f => PrimitiveType.requiredImport(f.primitiveType))
+    fields
+      .flatMap(f => PrimitiveType.requiredImport(f.primitiveType))
+      .distinct
+      .sorted
 
   def showImports: String =
     if (requiredImports.isEmpty) ""
@@ -26,13 +29,15 @@ final case class CaseClass(
       )
 
   def showDocComment: String = {
-    val params = fields.map(f =>
-      s" *  @param ${f.fieldName}${f.dataDescription.fold("")(" " + _)}")
+    val params = fields.map(
+      f => s" *  @param ${f.fieldName}${f.dataDescription.fold("")(" " + _)}"
+    )
 
     params.mkString(
       s"""|/**
-          | * Data model for $name${tableDescription.fold("")(description =>
-           ": " + description)}
+          | * Data model for $name${tableDescription.fold("")(
+           description => ": " + description
+         )}
           | *
           |""".stripMargin,
       System.lineSeparator(),
